@@ -1,0 +1,7 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.parcel-cache/
+.jekyll-metadata
+node_modules
+assets
