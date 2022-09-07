@@ -4,12 +4,15 @@
   "source": "index.md",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "build": "parcel build _assets/main.css _assets/main.js --dist-dir assets",
-    "watch": "parcel _assets/main.css _assets/main.js --dist-dir assets",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel _assets/main.css _assets/main.js --dist-dir assets --no-hmr",
+    "build:assets": "parcel build _assets/main.css _assets/main.js --dist-dir assets",
+    "build:site": "bundle exec jekyll build",
+    "build": "npm run build:assets && npm run build:site",
+    "deploy": "npm run build && gh-pages -d _site"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
+    "gh-pages": "^4.0.0",
     "parcel": "^2.7.0",
     "postcss": "^8.4.16",
     "stimulus": "^3.1.0",

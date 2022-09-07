@@ -23,8 +23,12 @@
   <link rel="stylesheet" href="assets/main.css?v=1.0">
 </head>
 
-<body class="container mx-auto px-4 py-5 bg-gray-100">
-  {{ content }}
+<body class="bg-gray-100">
+  {%- include navbar.html -%}
+  <main class="container mx-auto px-4 py-10">
+
+    {{ content }}
+  </main>
 </body>
 
 </html>
