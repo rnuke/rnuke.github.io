@@ -3,4 +3,4 @@
 .parcel-cache/
 .jekyll-metadata
 node_modules
-assets
+/assets
