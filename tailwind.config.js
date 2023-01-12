@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './_includes/**/*.html',
@@ -6,7 +8,11 @@ module.exports = {
     './*.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'serif': ['"Press Start 2P"', ...defaultTheme.fontFamily.serif],
+      },
+    }
   },
   plugins: [
     require('@tailwindcss/forms')
