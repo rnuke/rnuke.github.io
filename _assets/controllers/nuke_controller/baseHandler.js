@@ -49,7 +49,7 @@ export default class BaseHandler {
 
   async #nukeItem(element) {
     const id = element.dataset.id;
-    const updateText = "Deleted by rnuke (https://rnuke.co)";
+    const updateText = "Deleted by rnuke (https://rnuke.github.io)";
 
     element.classList.add("deleted");
 

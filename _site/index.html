@@ -26,9 +26,14 @@
   <link rel="stylesheet" href="assets/main.css?v=1.0">
 </head>
 
-<body data-controller="{{ page.controller }}" class="bg-zinc-900 font-serif text-zinc-100">
+<body data-controller="authorize" class="bg-zinc-900 font-serif text-zinc-100">
   <main class="container mx-auto px-4 py-10">
-    {{ content }}
+    <h1 class="text-5xl mb-4">rnuke</h1>
+<button data-action="authorize#start"
+    class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+    Call Now
+</button>
+
   </main>
 </body>
 
