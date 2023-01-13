@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   start() {
-    const endpoint = new URL("https://www.reddit.com/api/v1/authorize.compact")
+    const endpoint = new URL("https://old.reddit.com/api/v1/authorize.compact")
     const state = Math.random().toString(36).slice(2)
 
     document.cookie = `authorization_state=${state}`
