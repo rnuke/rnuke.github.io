@@ -86,9 +86,9 @@ export default class Client {
   }
 
   #request({ url, method, params, callback } = {}) {
-    // if (method == "POST") {
-    //   return new Promise(resolve => setTimeout(resolve, 1000)).then(() => console.log(url));
-    // }
+    if (method == "POST") {
+      return new Promise(resolve => setTimeout(resolve, 1000)).then(() => console.log(url));
+    }
 
     const headers = new Headers();
     headers.append("Authorization", `Bearer ${this.token} `)
