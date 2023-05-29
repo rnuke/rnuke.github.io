@@ -12,12 +12,13 @@
   <meta property="og:title" content="rnuke">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rnuke.github.io">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:description" content="Nuke Reddit history">
   <!-- <meta property="og:image" content="image.png"> -->
 
-  <!-- <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSGN8B9WMF"></script>
@@ -38,11 +39,55 @@
 </head>
 
 <body data-controller="authorize" class="bg-zinc-900 font-serif text-zinc-100">
-  <main class="container mx-auto px-4 py-10">
-    <h1 class="text-5xl mb-4">rnuke</h1>
+  <main class="container mx-auto px-8 py-10">
+    <div class="flex items-start">
+    <h1 class="text-5xl mr-auto">rnuke</h1>
+    <a href="https://www.reddit.com/r/rnuke/" class="underline hover:no-underline" target="_blank">r/rnuke</a>
+</div>
+<p class="text-sm text-zinc-500 mb-8">Nuke Reddit history</p>
+
+<div class="text-sm">
+    <fieldset class="mb-8">
+        <div class="flex items-center mb-3">
+            <input type="checkbox" id="posts-check" checked data-authorize-target="posts">
+            <label for="posts-check" class="ml-3">Posts</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox" id="comments-check" checked data-authorize-target="comments">
+            <label for="comments-check" class="ml-3">Comments</label>
+        </div>
+    </fieldset>
+
+
+    <div class="mt-3">
+        <fieldset>
+            <legend class="mb-4">Time range</legend>
+            <div class="flex items-center">
+                <input type="radio" id="selection-all" name="selection" value="all" checked
+                    data-authorize-target="selection">
+                <label for="selection-all" class="ml-3">All time</label>
+            </div>
+            <div class="flex items-center">
+                <input type="radio" id="selection-some" name="selection" value="some" data-authorize-target="selection">
+                <label for="selection-some" class="ml-3">
+                    Older than
+                    <input type="number" id="number" value="3" min="1" max="5" class="text-zinc-900"
+                        data-authorize-target="number">
+                    <select name="period" id="period" class="text-zinc-900" data-authorize-target="period">
+                        <option value="hours" selected>Hours</option>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                    </select>
+                </label>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
 <button data-action="authorize#start"
-    class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-    Call Now
+    class="mt-5 bg-transparent hover:bg-zinc-100 text-zinc-100 hover:text-zinc-900 py-2 px-4 border border-zinc-100 hover:border-transparent">
+    Start
 </button>
 
   </main>

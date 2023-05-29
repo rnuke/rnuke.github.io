@@ -1,7 +1,8 @@
 export default class BaseHandler {
-  constructor(client, username) {
+  constructor(client, username, since) {
     this.client = client;
     this.username = username;
+    this.since = since;
     this.allItemsLoaded = false;
   }
 
@@ -25,10 +26,16 @@ export default class BaseHandler {
   async loadItems() {
     if (this.allItemsLoaded) return;
 
-    return this.getItems(this.username, { limit: "100", after: this.after }, response => {
+    return this.getItems(this.username, { limit: "100", sort: "new", after: this.after }, response => {
       this.after = response.data.after;
       this.allItemsLoaded = !this.after;
+
       this.#createItems(response);
+
+      // Because items were loaded that were newer than this.since
+      if (this.#elements.length < 50 && !this.allItemsLoaded) {
+        return this.loadItems();
+      }
     });
   }
 
@@ -40,10 +47,12 @@ export default class BaseHandler {
     let li;
 
     response.data.children.forEach(item => {
-      li = template.content.cloneNode(true).querySelector("li");
-      li.textContent = item.data[this.constructor.itemTextAttribute];
-      li.dataset.id = item.data.id;
-      ul.appendChild(li);
+      if (!this.since || (item.data.created_utc < this.since)) {
+        li = template.content.cloneNode(true).querySelector("li");
+        li.textContent = item.data[this.constructor.itemTextAttribute];
+        li.dataset.id = item.data.id;
+        ul.appendChild(li);
+      }
     });
   }
 

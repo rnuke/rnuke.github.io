@@ -3,9 +3,17 @@ layout: default
 controller: nuke
 ---
 
-<h1 class="text-5xl mb-4">rnuke</h1>
+<div class="flex items-start">
+  <h1 class="text-5xl mr-auto">rnuke</h1>
+  <a href="https://www.reddit.com/r/rnuke/" class="underline hover:no-underline mr-5" target="_blank">r/rnuke</a>
+  <a href="/"
+    class="text-sm bg-transparent hover:bg-zinc-100 text-zinc-100 hover:text-zinc-900 py-1 px-2 border border-zinc-100 hover:border-transparent">
+    Cancel
+  </a>
+</div>
+<p class="text-sm text-zinc-500 mb-8">Nuke Reddit history</p>
 <p id="loading" class="loading text-sm"></p>
 <ul id="items" class="text-sm mt-4 overflow-x-hidden"></ul>
 <template id="item-template">
-  <li class="py-2 border-b-2 border-dashed border-zinc-100 w-full"></li>
+  <li class="py-2 border-b-2 border-dashed border-zinc-500 w-full whitespace-nowrap text-ellipsis overflow-hidden"></li>
 </template>
